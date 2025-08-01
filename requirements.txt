@@ -1,0 +1,7 @@
+fastf1 
+pandas 
+scikit-learn 
+xgboost 
+matplotlib 
+seaborn 
+jupyter
