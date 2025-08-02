@@ -5,3 +5,5 @@ xgboost
 matplotlib 
 seaborn 
 jupyter
+numpy==2.2.0
+shap
