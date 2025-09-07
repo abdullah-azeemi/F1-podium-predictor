@@ -3,10 +3,17 @@ import pandas as pd
 import os
 
 ## -- Configurations -- ###
-dataPath = "../data/processed/2025_Hungary_ModelFeatures.csv"
-modelPath = "../models/xgb_podium_predictor.pkl"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+dataPath = os.path.join(script_dir, "..", "data", "processed", "2025_Monza_ModelFeatures.csv")
+modelPath = os.path.join(script_dir,"..", "models", "xgb_monza_podium_predictor.pkl")
 
-topK = 3 # podium positions
+# Validate paths 
+if not os.path.exists(modelPath):
+	raise FileNotFoundError(f"Model file not found at: {modelPath}")
+if not os.path.exists(dataPath):
+	raise FileNotFoundError(f"Data file not found at: {dataPath}")
+
+topK = 3 
 
 print("Loading model")
 model = joblib.load(modelPath)
@@ -16,24 +23,15 @@ features = pd.read_csv(dataPath)
 
 drivers = features['Driver']
 
-# Reordering features to match training columns
 expected_columns = [
-    'Sector3Time_mean',
-    'Sector2Time_mean',
-    'Sector1Time_mean',
-    'AvgQualiPosition',
-    'AvgRacePaceDelta',
     'Quali_Position',
-    'Practice 3_Top3Average',
-    'Practice 1_BestLap',
-    'ThrottleAggressiveness',
-    'avgBrake',
-    'LowSpeedCornerPerf',
-    'Practice 2_Top3Average'
+  'AvgQualiPosition',
+  'AvgRacePaceDelta',
+  'Practice 1_BestLap',
+  'Practice 3_Top3Average'
 ]
 
 features2025 = features[expected_columns] 
-#print("\n Features used:", features2025.columns.tolist())
 
 predictedPositions = model.predict(features2025)
 

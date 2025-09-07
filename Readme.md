@@ -1,6 +1,7 @@
-# 🏎️ F1 Qualifying Telemetry Analysis — Hungary GP 2025
+# 🏎️ F1 Qualifying Telemetry Analysis — Monza & Hungary GP 2025
 
-This project explores and visualizes driver telemetry data from the **2025 Hungarian Grand Prix Qualifying session** using the [`FastF1`](https://theoehrly.github.io/Fast-F1/) package.
+This project explores and visualizes driver telemetry data from the **2025 Hungarian and Monza Grand Prix Qualifying sessions** using the [`FastF1`](https://theoehrly.github.io/Fast-F1/) package.
+
 
 We focus on comparing key telemetry metrics (Speed, Throttle, Brake, RPM, etc.) across selected drivers — **Leclerc (LEC)**, **Norris (NOR)**, and **Piastri (PIA)** — to reveal subtle differences in driving styles and car behavior.
 
@@ -8,12 +9,12 @@ We focus on comparing key telemetry metrics (Speed, Throttle, Brake, RPM, etc.) 
 
 ## 🧠 Bonus: Podium Prediction Model
 
-In addition to telemetry visualizations, this repository includes a machine learning model trained on **2024 season data** — especially from the **Hungarian Grand Prix (FP1, FP2, FP3, Quali)** — to **predict the podium finishers for the 2025 race**.
+In addition to telemetry visualizations, this repository includes a machine learning model trained on **2024 season data** — especially from **Hungary and Monza GPs (FP1, FP2, FP3, Quali)** — to **predict the podium finishers for the 2025 races**.
 
 - Model type: XGBoost Regressor
 - Features used: session pace, tire usage, qualifying positions, team dynamics, and driver form
 - Evaluation metric: MAE (Mean Absolute Error)
-- Current MAE: ~1.52 (position prediction)
+- Current MAE: ~0.471 (position prediction)
 
 ---
 
